@@ -19,7 +19,7 @@ import pandas as pd
 app = Flask(__name__)
 
 API_URL = "https://api-inference.huggingface.co/models/stabilityai/stable-diffusion-xl-base-1.0"
-API_KEY = "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"
+API_KEY = "ADD_KEY_HERE"
 
 def clear_folder(folder_path):
     # List all files and directories in the given folder
