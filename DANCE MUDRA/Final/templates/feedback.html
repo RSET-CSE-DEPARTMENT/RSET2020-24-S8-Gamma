@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feedback</title>
+    <link rel="stylesheet" href="../static/form.css">
+    <script>
+        function showAlert(message) {
+            alert(message);
+        }
+
+        function validateForm() {
+            var name = document.getElementById('name').value;
+            var email = document.getElementById('email').value;
+            var rating = document.querySelector('input[name="rating"]:checked');
+            var message = document.getElementById('message').value;
+
+            if (!name || !email || !rating || !message) {
+                showAlert('Please fill in all fields.');
+                return false;
+            }
+
+            if (!isEmailValid(email)) {
+                showAlert('Invalid email format.');
+                return false;
+            }
+
+            return true;
+        }
+
+        function isEmailValid(email) {
+            // Basic email format check
+            return /\S+@\S+\.\S+/.test(email);
+        }
+    </script>
+</head>
+
+<body>
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="navbar">
+            <div class="logoContent">
+                <img src="../static/Images/logo.png" alt="Logo image" class="logo">
+            </div>
+            <div class="navLinks">
+                <a href="/" class="links active">Home</a>
+                <a href="/uploadimages" class="links">Learn</a>
+                <a href="/viewmudra" class="links">View Mudras</a> 
+                <a href="/feedback" class="links">Feedback</a>
+            </div>
+        </div>
+
+        <div class="interface3">
+            <div class="title">
+                FEEDBACK
+            </div>
+            <form action="/submit" method="POST" onsubmit="return validateForm()">
+                <p style="font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; font-size: 20px; color:white; margin-bottom: 10px">Name:</p>
+                <input type="text" id="name" name="name"><br>
+
+                <p style="font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; font-size: 20px; color:white; margin-bottom: 10px">Email ID:</p>
+                <input type="text" id="email" name="email"><br>
+
+                <div class="radio-container">
+                    <p style="font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; font-size: 20px; color:white; margin-bottom: 10px">How well do you rate this app?:</p>
+                    <input type="radio" id="Excellent" name="rating" value="Excellent">
+                    <label for="Excellent">Excellent</label><br>
+
+                    <input type="radio" id="VeryGood" name="rating" value="Very Good">
+                    <label for="VeryGood">Very Good</label><br>
+
+                    <input type="radio" id="Good" name="rating" value="Good">
+                    <label for="Good">Good</label><br>
+
+                    <input type="radio" id="Poor" name="rating" value="Poor">
+                    <label for="Poor">Poor</label><br>
+                </div>
+
+                <p style="font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; font-size: 20px; color:white; margin-bottom: 10px">Any other remark/ feedback?:</p>
+                <input type="text" id="message" name="message"><br><br>
+
+                <input type="submit" value="Submit">
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>

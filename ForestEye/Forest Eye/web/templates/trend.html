@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@1,200&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='trend.css') }}">
+    <title>Forest Cover Trend</title>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg bg-dark border-bottom border-bottom-dark" data-bs-theme="dark">
+        <div class="container-fluid d-flex flex-row">
+          {% if current_user.is_authenticated %}
+            <a class="navbar-brand" href="{{url_for('home')}}">Forest Eye</a>
+          {% endif %}
+            <div class="collapse navbar-collapse d-flex justify-content-end" id="navbarNav">
+                <ul class="navbar-nav ">                    
+                  {% if current_user.is_authenticated %}
+                      <a class="nav-item nav-link" href="{{url_for('account')}}">Account</a>
+                      <a class="nav-item nav-link" href="{{url_for('logout')}}">Logout</a>
+                  {% else %}
+                      <a class="nav-item nav-link" href="{{url_for('register')}}">Register</a>
+                      <a class="nav-item nav-link" href="{{url_for('login')}}">Login</a>
+                  {% endif %}
+                </ul>
+            </div>
+        </div>
+      </nav>
+
+      <video  autoplay loop muted class="vdo">
+        <source src="{{ url_for('static', filename='images/abc.mp4') }}" >
+    
+    </video>
+
+    <div class="wrapper">
+        <div class="container">
+            <input type="radio" name="slide" id="c1" checked>
+            <label for="c1" class="card">
+                <div class="row">
+                    <div class="icon">1</div>
+                    <div class="description">
+                        <h4>Brazil</h4>
+                        <p>Yearly Forest Loss </p>
+                    </div>
+                </div>
+            </label>
+            <input type="radio" name="slide" id="c2" >
+            <label for="c2" class="card">
+                <div class="row">
+                    <div class="icon">2</div>
+                    <div class="description">
+                        <h4>India</h4>
+                        <p>Yearly Forest Loss </p>
+                    </div>
+                </div>
+            </label>
+            <input type="radio" name="slide" id="c3" >
+            <label for="c3" class="card">
+                <div class="row">
+                    <div class="icon">3</div>
+                    <div class="description">
+                        <h4></h4>
+                        <h4>Zambia</h4>
+                        <p>Yearly Forest Loss </p>
+                    </div>
+                </div>
+            </label>
+            <input type="radio" name="slide" id="c4" >
+            <label for="c4" class="card">
+                <div class="row">
+                    <div class="icon">4</div>
+                    <div class="description">
+                        <h4>Indonesia</h4>
+                        <p>Yearly Forest Loss </p>
+                    </div>
+                </div>
+            </label>
+        </div>
+    </div>
+     
+</body>
+</html>

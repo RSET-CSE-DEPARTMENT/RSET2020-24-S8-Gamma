@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../static/index.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <style>
+        /* Style for the container that enables scrolling */
+        .scrollable-container {
+            height: 100vh; /* Set height to full viewport height */
+            overflow-y: auto; /* Enable vertical scrolling */
+            overflow-x: hidden; /* Hide horizontal scrollbar */
+        }
+
+        /* Hide the camera feed initially */
+        #cameraFeed {
+            display: none;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="scrollable-container">
+    <div class="overlay"></div>
+    <div class="container">
+
+        <div class="navbar">
+            <div class="logoContent">
+                <img src="../static/Images/logo.png" alt="Logo image" class="logo">
+                <!-- <div class="logoText">Logo text</div> -->
+            </div>
+            <div class="navLinks">
+                <a href="/" class="links">Home</a>
+                <a href="/uploadimages" class="links">Learn</a>
+                <a href="/viewmudra" class="links">View Mudras</a> 
+                <a href="/feedback" class="links">Feedback</a>
+            </div>
+        </div>
+
+        <div class="interface">
+            <div class="title">
+                LEARNING TIME
+            </div>
+
+            <div id="mudraContentContainer" style="display: none;">
+                <img id="mudraImage1" src="" alt="Mudra Image 1">
+                <img id="mudraImage2" src="" alt="Mudra Image 2">
+                <p id="mudraText"></p>
+            </div>
+
+            <!-- Container for the camera feed -->
+            <!-- <video id="cameraFeed" width="640" height="480" autoplay></video> -->
+            <button id="toggleCamera">Start Camera</button>
+            <div id="predictionStatus"></div>
+            <!-- <button id="realTime">Real time</button> -->
+            <form action="/predict" method="POST" enctype="multipart/form-data" id="uploadForm">
+                <input type="file" id="fileInput" accept="image/*" style="display: none;" />
+                <label for="fileInput" class="custom-button">Upload</label>
+                <button type="submit" id="predictButton">Predict</button>
+            </form>
+            <div id="output"></div>
+            <span id="custom-text">No file chosen</span>
+        </div>
+    </div>
+    </div>
+    <script>
+
+
+        // document.addEventListener("DOMContentLoaded", function() {
+        //     var videoElement = document.getElementById('cameraFeed');
+        //     var toggleButton = document.getElementById('toggleCamera');
+        //     var isCameraOn = false;
+        //     var mediaStream = null; // Declare mediaStream in the global scope
+
+        //     toggleButton.addEventListener('click', function() {
+        //         if (!isCameraOn) {
+        //             startCamera();
+        //         } else {
+        //             stopCamera();
+        //         }
+        //         isCameraOn = !isCameraOn;
+        //         toggleButton.textContent = isCameraOn ? 'Stop Camera' : 'Start Camera';
+        //     });
+
+        //     // Function to start the camera
+        //     function startCamera() {
+        //         navigator.mediaDevices.getUserMedia({ video: true })
+        //             .then(function(stream) {
+        //                 mediaStream = stream; // Assign the stream to the global mediaStream variable
+        //                 videoElement.srcObject = stream;
+        //                 videoElement.style.display = 'block'; // Show the camera feed
+        //                 sendFramesToServer(); // Start sending frames to the server
+        //             })
+        //             .catch(function(err) {
+        //                 console.error('Error accessing camera:', err);
+        //             });
+        //     }
+
+        //     // Function to stop the camera
+        //     function stopCamera() {
+        //         console.log('Stopping camera...');
+        //         if (mediaStream) {
+        //             mediaStream.getTracks().forEach(function(track) {
+        //                 track.stop();
+        //             });
+        //             mediaStream = null;
+        //         } else {
+        //             console.log('Media stream not found.');
+        //         }
+        //         videoElement.srcObject = null;
+        //         videoElement.style.display = 'none'; // Hide the camera feed
+        //     }
+
+        //     // Function to continuously capture frames and send them to the server
+        //     function sendFramesToServer() {
+        //         var canvas = document.createElement('canvas');
+        //         var context = canvas.getContext('2d');
+        //         canvas.width = videoElement.videoWidth;
+        //         canvas.height = videoElement.videoHeight;
+
+        //         function captureFrame() {
+        //             context.drawImage(videoElement, 0, 0, canvas.width, canvas.height);
+        //             canvas.toBlob(function(blob) {
+        //                 sendFrameToServer(blob);
+        //             }, 'image/jpeg');
+        //         }
+
+        //         setInterval(captureFrame, 1000); // Adjust interval as needed
+        //     }
+
+        //     // Function to send a single frame to the server
+        //     function sendFrameToServer(frameBlob) {
+        //         var formData = new FormData();
+        //         formData.append('frame', frameBlob);
+
+        //         fetch('/realTime', {
+        //             method: 'POST',
+        //             body: formData
+        //         })
+        //         .then(response => response.json())
+        //         .then(data => {
+        //             if (data.success) {
+        //                 console.log('Prediction successful');
+        //             } else {
+        //                 console.error('Prediction failed');
+        //             }
+        //         })
+        //         .catch(error => {
+        //             console.error('Error sending frame to server:', error);
+        //         });
+        //     }
+        // });
+
+        document.addEventListener("DOMContentLoaded", function() {
+            var toggleButton = document.getElementById('toggleCamera');
+            var isCameraOn = false;
+
+            toggleButton.addEventListener('click', function() {
+                if (!isCameraOn) {
+                    startCamera();
+                } else {
+                    stopCamera();
+                }
+                isCameraOn = !isCameraOn;
+                toggleButton.textContent = isCameraOn ? 'Stop Camera' : 'Start Camera';
+            });
+
+            function startCamera() {
+                // Here you can place the code to send a request to the server
+                // You can use fetch() or any other method to send the request
+                fetch('/realTime')
+                .then(response => response.json())
+                .then(data => {
+                    // Displaying the status message in a div
+                    document.getElementById('predictionStatus').innerText = data.status;
+                })
+                .catch(error => {
+                    console.error('Error starting camera:', error);
+                });
+            }
+
+            function stopCamera() {
+                // You can place any necessary code to stop the camera if needed
+                console.log('Camera stopped.');
+            }
+        });
+        
+        $(document).ready(function () {
+    // When a file is chosen, display its name
+    $('#fileInput').on('change', function () {
+        var fileName = $(this).val().split('\\').pop();
+        $('#custom-text').text(fileName !== "" ? fileName : "No file chosen");
+    });
+
+    $('#predictButton').on('click', function (event) {
+    event.preventDefault(); // Prevent default form submission
+    var fileInput = document.getElementById('fileInput');
+    var file = fileInput.files[0];
+    var formData = new FormData();
+    formData.append('file', file);
+
+    var predictedClass;
+
+    //mudra=["Alapadmam","Anjali","Ardhachandran","Ardhapathaka","Berunda","Bramaram","Chakra","Chandrakala","Chaturam","Garuda","Hamsapaksha","Hamsasyam","Kapith","Katakamukha","Katrimukha","Kilaka","Mukulam","Mushti","Pataka","Shikharam","Shivalingam","Suchi","Swastikam","Tamarachudam","Tripathaka"]
+
+    $.ajax({
+        url: '/predict',
+        type: 'POST',
+        data: formData,
+        contentType: false,
+        processData: false,
+        success: function (data) {
+            var outputDiv = $('#output');
+            outputDiv.html('');
+
+            
+
+            // Display annotated images
+            data.annotated_images.forEach(function (annotated_image) {
+                var img = $('<img>').attr('src', 'data:image/jpeg;base64,' + annotated_image);
+                outputDiv.append(img);
+                //console.log(predictedClass)
+            });
+
+
+            var predictedName = data.predicted_name;
+        console.log("Predicted Name:", predictedName);
+        //window.location.href = `/result_details?mudra=${predictedName}`;
+                setTimeout(function() {
+                    // Assuming predicted mudra name is in data.predicted_mudra
+                    const predictedMudra = predictedName;
+                    console.log("Predicted Mudra:", predictedMudra);
+                    window.location.href = `/result_details?mudra=${predictedMudra}`;
+                    // Use the predicted mudra as needed
+                }, 3000); // 3000 milliseconds = 3 seconds
+            },
+            error: function (xhr, status, error) {
+                console.error('Error:', error);
+            }
+        });
+    });
+});
+
+
+    </script>
+ 
+
+</body>
+
+</html>

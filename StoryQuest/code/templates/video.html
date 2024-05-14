@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Page</title>
+    <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@600&display=swap');
+        *{
+            font-family: "Inconsolata",sans-serif;
+        }
+        .video-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh; /* Set height to fill the viewport */
+        }
+    </style>
+</head>
+<body>
+    <div class="video-container">
+
+        <video width="640" height="480" controls>
+            <source src="{{ video_path }}" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+</body>
+</html>

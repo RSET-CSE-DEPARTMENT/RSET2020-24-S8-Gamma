@@ -1,0 +1,439 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@600&family=Rammetto+One&family=Rubik+Doodle+Shadow&family=Rubik+Moonrocks&display=swap" rel="stylesheet">
+  <title>Browse Stories</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@600&display=swap');
+    /* Optional CSS for styling */
+
+    *{
+      padding:0;
+      box-sizing: border-box;
+      list-style: none;
+      text-decoration: none;
+      scroll-padding-top: 2rem;
+      scroll-behavior: smooth;
+      font-family: "Inconsolata",sans-serif;
+      }
+    
+    section {
+      padding: .5rem 0 1.5rem;
+    }
+
+    header{
+    position: fixed;
+    width: 100%;
+    top: 0%;
+    right: 0%;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content:space-between;
+    background: black;
+    box-shadow: 0 4px 41px rgb(14 55 54 /14%);
+    padding: 15px 10%;
+    transition: 0.2s;
+}
+
+.logo {
+     display: flex;
+     align-items:center;
+}
+
+.logo img {
+   width:40px;
+}
+
+.navbar{
+   display: flex;
+}
+
+.navbar a{
+    font-size: 1rem;
+    padding: 11px 20px;
+    color: white;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+    .book-container {
+      max-width:968px;
+      margin-right:auto;
+      margin-left:auto;
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(180px,auto));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .box .box-img{
+      width: 5cm;
+      height: 7cm;
+    }
+
+    .box .box-img img{
+      width:5cm;
+      height: 7cm;
+      object-fit: cover;
+    }
+
+    .image-button {
+      border: none;
+      background: none;
+      cursor: pointer;
+      padding: 0;
+      margin: 0;
+    }
+    
+    .image-button img {
+      width: 5cm; /* Set the width of the image */
+      height: 7cm; /* Maintain aspect ratio */
+    }
+
+    .image-button img:hover{
+      transform: scale(1.1);
+    }
+
+    .box h3{
+      font-size: 0.9rem;
+      font-weight: 500;
+    }
+   
+    .box span{
+      font-size: 0.9rem;
+      font-weight: 500;
+    }
+
+
+    /* Corrected CSS for the Rubik Doodle Shadow font */
+    .rubik-doodle {
+      font-family: "Rubik Doodle Shadow", sans-serif;
+      font-weight: 590;
+      font-style: normal;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <a href="#" class="logo"><img src="text to image/text to image/static/images/download (1).jpg" alt=""></a>
+    <div class="bx bx-menu" id="menu-icon"></div>
+
+    <ul class="navbar">
+      <li><a href="/index">Home</a></li>
+    </ul>
+</header>
+  <!-- Example of a single image button -->
+  <br/>
+  <br/>
+  <br/>
+  <br/>
+  <h1 class="rubik-doodle"><center>Browse the stories to bring it to life</center></h1>
+  
+
+<section class="books" id="books">
+ <div class="book-container">
+    <div class="box">
+    <div class="box-img">
+  <button class="image-button" onclick="buttonClicked('image1')">
+    <img src="static\images\book\snow.jpeg" alt="Image Button 1">
+  </button>
+  </div> 
+  <h3>Snow White</h3>
+  </div>
+
+
+  <!-- Example of multiple image buttons -->
+   
+    <div class="box">
+    <div class="box-img">
+  <button class="image-button" onclick="buttonClicked('image2')">
+    <img src="static\images\book\cindrella.jpg" alt="Image Button 2">
+  </button>
+  </div> 
+  <h3>Cindrella</h3>
+  </div>
+
+  
+    <div class="box">
+    <div class="box-img">
+  <button class="image-button" onclick="buttonClicked('image3')">
+    <img src="static\images\book\goldilocks and the three bears.jpeg" alt="Image Button 3">
+  </a>
+  </button>
+  </div> 
+  <h3>Goldilocks and the three <br/>bears</h3>
+  </div>
+
+    <div class="box">
+    <div class="box-img">
+  <button class="image-button" onclick="buttonClicked('image4')">
+    <img src="static\images\book\jack beanstalk.jpg" alt="Image Button 4">
+  </button>
+  </div> 
+  <h3>Jack and the Beanstalk</h3>
+  </div>
+
+  
+    <div class="box">
+    <div class="box-img">
+  <button class="image-button" onclick="buttonClicked('image5')">
+    <img src="static\images\book\red riding hood.jpg" alt="Image Button 5">
+  </button>
+  </div> 
+  <h3>Little Red Riding Hood</h3>
+  </div>
+
+  
+    <div class="box">
+    <div class="box-img">
+  <button class="image-button" onclick="buttonClicked('image6')">
+    <img src="static\images\book\little mermaid.jpeg" alt="Image Button 6">
+  </button>
+  </div> 
+  <h3>The Little Mermaid</h3>
+  </div>
+
+  <div class="box">
+    <div class="box-img">
+  <button class="image-button" onclick="buttonClicked('image7')">
+    <img src="static\images\book\pinocchio.jpg" alt="Image Button 6">
+  </button>
+  </div> 
+  <h3>Pinnochio</h3>
+  </div>
+
+  <div class="box">
+    <div class="box-img">
+  <button class="image-button" onclick="buttonClicked('image8')">
+    <img src="static\images\book\The Thirsty Crow.JPG" alt="Image Button 6">
+  </button>
+  </div> 
+  <h3>The Thirsty Crow</h3>
+  </div>
+
+  <div class="box">
+    <div class="box-img">
+  <button class="image-button" onclick="buttonClicked('image9')">
+    <img src="static\images\book\thumbelina.jpg" alt="Image Button 6">
+  </button>
+  </div> 
+  <h3>Thumbelina</h3>
+  </div>
+
+  <div class="box">
+    <div class="box-img">
+  <button class="image-button" onclick="buttonClicked('image10')">
+    <img src="static\images\book\The Three Little Pigs.JPG" alt="Image Button 6">
+  </button>
+  </div> 
+  <h3>The Three Little Pigs</h3>
+  </div>
+
+  <div class="box">
+    <div class="box-img">
+  <button class="image-button" onclick="buttonClicked('image11')">
+    <img src="static\images\book\The ugly duckling.JPG" alt="Image Button 6">
+  </button>
+  </div> 
+  <h3>The Ugly Duckling</h3>
+  </div>
+
+  <div class="box">
+    <div class="box-img">
+  <button class="image-button" onclick="buttonClicked('image12')">
+    <img src="static\images\book\hansel and gretel.JPG" alt="Image Button 6">
+  </button>
+  </div> 
+  <h3>Hansel and Gretel</h3>
+  </div>
+
+  <div class="box">
+    <div class="box-img">
+  <button class="image-button" onclick="buttonClicked('image13')">
+    <img src="static\images\book\rapunzel.jpg" alt="Image Button 5">
+  </button>
+  </div> 
+  <h3>Rapunzel</h3>
+  </div>
+
+  <div class="box">
+    <div class="box-img">
+  <button class="image-button" onclick="buttonClicked('image14')">
+    <img src="static\images\book\Aladdin.jpg" alt="Image Button 5">
+  </button>
+  </div> 
+  <h3>Aladdin</h3>
+  </div>
+
+  <div class="box">
+    <div class="box-img">
+  <button class="image-button" onclick="buttonClicked('image15')">
+    <img src="static\images\book\Peter Pan.jpg" alt="Image Button 5">
+  </button>
+  </div> 
+  <h3>Peter Pan</h3>
+  </div>
+
+  <div class="box">
+    <div class="box-img">
+  <button class="image-button" onclick="buttonClicked('image16')">
+    <img src="static\images\book\Cap Seller.jpg" alt="Image Button 5">
+  </button>
+  </div> 
+  <h3>Cap Seller</h3>
+  </div>
+
+  <div class="box">
+    <div class="box-img">
+  <button class="image-button" onclick="buttonClicked('image17')">
+    <img src="static\images\book\Sleeping-beauty.webp" alt="Image Button 5">
+  </button>
+  </div> 
+  <h3>Sleeping Beauty</h3>
+  </div>
+
+
+  <div class="box">
+    <div class="box-img">
+  <button class="image-button" onclick="buttonClicked('image18')">
+    <img src="static\images\book\The Tortoise and the Hare.jpg" alt="Image Button 5">
+  </button>
+  </div> 
+  <h3>The Tortoise and the Hare</h3>
+  </div>
+
+  <div class="box">
+    <div class="box-img">
+  <button class="image-button" onclick="buttonClicked('image19')">
+    <img src="static\images\book\The Ant and the Grasshopper.jpg" alt="Image Button 5">
+  </button>
+  </div> 
+  <h3>The Ant and the Grasshopper</h3>
+  </div>
+
+
+  <div class="box">
+    <div class="box-img">
+  <button class="image-button" onclick="buttonClicked('image20')">
+    <img src="static\images\book\The Princess and the Frog.jpg" alt="Image Button 5">
+  </button>
+  </div> 
+  <h3>The Princess and the Frog</h3>
+  </div>
+
+  <div class="box">
+    <div class="box-img">
+  <button class="image-button" onclick="buttonClicked('image21')">
+    <img src="static\images\book\King Midas And The Gloden Torch.JPG" alt="Image Button 21">
+  </button>
+  </div> 
+  <h3>King Midas And The Golden <br/>Touch</h3>
+  </div>
+
+  <div class="box">
+    <div class="box-img">
+  <button class="image-button" onclick="buttonClicked('image22')">
+    <img src="static\images\book\Alice in Wonderland.jpg" alt="Image Button 5">
+  </button>
+  </div> 
+  <h3>Alice in Wonderland</h3>
+  </div>
+
+  <div class="box">
+    <div class="box-img">
+  <button class="image-button" onclick="buttonClicked('image23')">
+    <img src="static\images\book\The Jungle Book.jpg" alt="Image Button 5">
+  </button>
+  </div> 
+  <h3>The Jungle Book</h3>
+  </div>
+
+  <div class="box">
+    <div class="box-img">
+  <button class="image-button" onclick="buttonClicked('image24')">
+    <img src="static\images\book\The Wizard of OZ.jpg" alt="Image Button 6">
+  </button>
+  </div> 
+  <h3>The Wizard of Oz</h3>
+  </div>
+
+  <div class="box">
+    <div class="box-img">
+  <button class="image-button" onclick="buttonClicked('image25')">
+    <img src="static\images\book\Winnie The Pooh.jpg" alt="Image Button 6">
+  </button>
+  </div> 
+  <h3>Winnie the Pooh</h3>
+  </div>
+
+  <div class="box">
+    <div class="box-img">
+  <button class="image-button" onclick="buttonClicked('image26')">
+    <img src="static\images\book\Charolettes Web.JPG" alt="Image Button 26">
+  </button>
+  </div> 
+  <h3>Charlotte's Web </h3>
+  </div>
+
+  <div class="box">
+    <div class="box-img">
+  <button class="image-button" onclick="buttonClicked('image27')">
+    <img src="static\images\book\The Little Match Girl.jpg" alt="Image Button 6">
+  </button>
+  </div> 
+  <h3>The Little Match Girl</h3>
+  </div>
+
+  <div class="box">
+    <div class="box-img">
+  <button class="image-button" onclick="buttonClicked('image28')">
+    <img src="static\images\book\The Chronicles of Narnia.JPG" alt="Image Button 28">
+  </button>
+  </div> 
+  <h3>The Chronicles of Narnia </h3>
+  </div>
+
+  <div class="box">
+    <div class="box-img">
+  <button class="image-button" onclick="buttonClicked('image29')">
+    <img src="static\images\book\Charlie and The Chocolate Factory.JPG" alt="Image Button 29">
+  </button>
+  </div> 
+  <h3>Charlie and The Chocolate <br/>Factory</h3>
+  </div>
+
+  <div class="box">
+    <div class="box-img">
+  <button class="image-button" onclick="buttonClicked('image30')">
+    <img src="static\images\book\Lady and The Tramp.JPG" alt="Image Button 6">
+  </button>
+  </div> 
+  <h3>Lady and the Tramp</h3>
+  </div>
+
+  <div class="box">
+    <div class="box-img">
+  <button class="image-button" onclick="buttonClicked('image31')">
+    <img src="static\images\book\beauty.jpg" alt="Image Button 6">
+  </button>
+  </div> 
+  <h3>Beauty and the Beast</h3>
+  </div>
+
+</div>
+</section>
+  <!-- JavaScript function to handle button clicks -->
+  <script>
+    function buttonClicked(imageId) {
+      // Redirect to the '/get_story' endpoint with the image_id as a parameter
+      window.location.href = `/get_story?image_id=${imageId}`;
+    }
+  </script>
+  
+</body>
+</html>

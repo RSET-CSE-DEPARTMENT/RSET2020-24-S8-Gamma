@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mudra Details</title>
+    <link rel="stylesheet" href="../static/index.css"> <!-- Use the same CSS file as your main HTML -->
+</head>
+<body>
+    <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../static/index.css">
+    <!-- <script src="/static/script.js"></script> -->
+</head>
+
+<body>
+    <div class="overlay"></div>
+    <div class="container">
+
+        <div class="navbar">
+            <div class="logoContent">
+                <img src="../static/Images/logo.png" alt="Logo image" class="logo">
+                <!-- <div class="logoText">Logo text</div> -->
+            </div>
+            <div class="navLinks">
+                <a href="/" class="links">Home</a>
+                <a href="/uploadimages" class="links">Learn</a>
+                <a href="/viewmudra" class="links">View Mudras</a> 
+                <a href="/feedback" class="links">Feedback</a>
+            </div>
+        </div>
+
+    <div class="container_pic">
+        <h1 id="mudraTitle">Mudra Details</h1>
+        <div id="mudraDetails">
+            <img id="mudraImage" src="" alt="Mudra Image">
+            <p id="mudraDescription"></p> 
+        </div>
+    </div>
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const urlParams = new URLSearchParams(window.location.search);
+        const mudraName = urlParams.get('mudra'); // Get the mudra name from the URL parameter
+
+        const mudraTitle = document.getElementById('mudraTitle');
+        mudraTitle.textContent = "Correct Mudra: "+mudraName; // Set the title to the selected mudra name
+
+        const mudraImage = document.getElementById('mudraImage');
+        const imageSrc = "../static/result_images/" + mudraName + ".jpg";
+
+        mudraImage.src = imageSrc;
+
+        // fetch(`../static/mudra_descriptions/${mudraName.toLowerCase()}.txt`)
+        //     .then(response => response.text())
+        //     .then(description => {
+        //         const mudraDescription = document.getElementById('mudraDescription');
+        //         mudraDescription.textContent = description.trim();
+        //     })
+        //     .catch(error => {
+        //         console.error('Error fetching description:', error);
+        //         const mudraDescription = document.getElementById('mudraDescription');
+        //         mudraDescription.textContent = 'Description not available';
+        //     });
+    });
+    </script>
+</body>
+</html>

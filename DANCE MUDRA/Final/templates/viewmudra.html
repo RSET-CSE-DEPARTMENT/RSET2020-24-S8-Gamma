@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mudras</title>
+    <link rel="stylesheet" href="../static/index.css"> <!-- Use the same CSS file as your main HTML -->
+</head>
+
+<body>
+    <div class="overlay"></div>
+    <div class="container">
+
+        <div class="navbar">
+            <div class="logoContent">
+                <img src="../static/Images/logo.png" alt="Logo image" class="logo">
+            </div>
+            <div class="navLinks">
+                <a href="/" class="links">Home</a>
+                <a href="/uploadimages" class="links">Learn</a>
+                <a href="/viewmudra" class="links" id="viewMudrasBtn">View Mudras</a>
+                <a href="/feedback" class="links">Feedback</a>
+                <!-- Add other navigation links if needed -->
+            </div>
+        </div>
+
+        <div class="interface1">
+            <h1>List of Mudras</h1>
+            <div class="mudra-columns">
+                <ul class="mudra-list">
+                    <li><a href="#" >Alapadmam</a></li>
+                    <li><a href="#" >Anjali </a></li>
+                    <li><a href="#" >Ardhachandran </a></li>
+                    <li><a href="#" >Ardhapataka </a></li>
+                    <li><a href="#" >Berunda </a></li>
+                    <li><a href="#" >Bramaram </a></li>
+                    <li><a href="#" >Chakra </a></li>
+                    <li><a href="#" >Chandrakala  </a></li>
+                    <li><a href="#" >Chathuram </a></li>
+                    <li><a href="#" >Garuda </a></li>
+                    <li><a href="#" >Hamsapaksha </a></li>
+                    <li><a href="#" >Hamsasyam </a></li>
+                    <li><a href="#" >Kapith </a></li>
+                    <li><a href="#" >Katakamukha </a></li>
+                    <li><a href="#" >Katrimukha </a></li>
+                    <li><a href="#" >Kilaka </a></li>
+                    <li><a href="#" >Mukulam</a></li>
+                    <li><a href="#" >Mushti </a></li>
+                    <li><a href="#" >Pataka </a></li>
+                    <li><a href="#" >Shivalingam </a></li>
+                    <li><a href="#" >Shikharam </a></li>
+                    <li><a href="#" >Suchi </a></li>
+                    <li><a href="#" >Swastikam </a></li>
+                    <li><a href="#" >Thamarachoodam </a></li>
+                    <li><a href="#" >Thripataka </a></li>
+
+                    
+                </ul>
+            </div>
+            <div id="mudraDetails" style="display:none;">
+                <img id="mudraImage" src="" alt="Mudra Image">
+                <!-- <p id="mudraDescription"></p> -->
+            </div>
+        </div>
+    </div>
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const mudraList = document.querySelectorAll('.mudra-list li a');
+        const mudraImage = document.getElementById('mudraImage');
+        // const mudraDescription = document.getElementById('mudraDescription');
+    
+        mudraList.forEach(mudra => {
+            mudra.addEventListener('click', async (event) => {
+                event.preventDefault();
+                const mudraName = mudra.textContent.trim(); // Get the mudra name from the link text
+                //const imageSrc = "../static/mudra_images/" +mudraName+ ".jpg";
+                window.location.href = `/mudra_details?mudra=${mudraName}`;
+
+                mudraImage.src = imageSrc;
+                
+                // Fetch the text file containing descriptions
+                // const response = await fetch('../static/mudra_descriptions.txt');
+                // const text = await response.text();
+                // const descriptions = text.split('\n').map(line => line.split(':')); // Split lines into mudra_name:description pairs
+                // const description = descriptions.find(pair => pair[0] === mudraName); // Find description for the clicked mudra
+                // mudraDescription.textContent = description ? description[1] : 'Description not available';
+            });
+        });
+    });
+
+   </script>>
+    
+</body>
+
+</html>

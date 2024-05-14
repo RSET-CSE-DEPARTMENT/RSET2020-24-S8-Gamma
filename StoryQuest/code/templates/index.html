@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0">
+        <title>StoryQuest</title>
+        <link rel="stylesheet" href="static\css\style.css">
+        <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+    </head>
+    <body>
+        <!--Navbar-->
+        <header>
+            <a href="#" class="logo"><img src="static/images/download (1).jpg" alt=""></a>
+            <div class="bx bx-menu" id="menu-icon"></div>
+
+            <ul class="navbar">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#home">Sign In</a></li>
+            </ul>
+        </header>
+
+        <section class="home" id="home">
+            <div class="home-text">
+                <span>Let's</span>
+                <h1>story quest</h1>
+                <p>       </p><br>
+                <a href="#" class="btn">Turn your Story now</a>
+            </div>
+            <div class="home-img">
+                <img src="/static/images/bk1.png">
+
+            </div>
+        </section>
+        <section class="shop" id="shop">
+            <div class="heading">
+                <span></span>
+                <h1>Let your story come to life</h1>
+                <form action="/index" method="post">
+        <!--<label for="title">Enter title:</label>-->
+        <!--<input type="text" id="title" name="title" placeholder="Enter the title of your book:" required><br/>-->
+        <!--<label for="textInput"></label><br>-->
+        <textarea id="textInput" name="textInput" rows="6" cols="60" placeholder="Enter your story..."></textarea>
+        <br/>
+        <button id="generateButton" type="submit">Generate</button>
+    </form>
+     
+    <!-- 
+    {% if image_path %}
+        <img src="{{ image_path }}" alt="Generated Image">
+    {% endif %}
+    -->      
+    <br/>
+    <a href="/browse"><button id="generateButton">Browse the stories we have</button></a>
+        </section>
+        <section class="contact" id="contact">
+            <div class="social">
+                <a href="#"><i class='bx bxl-facebook'></i></a>
+                <a href="#"><i class='bx bxl-twitter'></i></a>
+                <a href="#"><i class='bx bxl-youtube'></i></a>
+            </div>
+
+        </section>
+    </body>
+</html>

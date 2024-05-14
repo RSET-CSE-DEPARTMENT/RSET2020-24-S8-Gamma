@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Flipbook</title>
+<link rel="stylesheet" href="static/css/styles.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=gnmIqzdx9B6LKTZEGjeho4q6_96fliEbrlV4pYPmK6PXeTjGMYfdllb5AucIDN7faZtiWlq1zy-v_v9t0blFimTf6Vpe_YdYv1SlFnIsXraKFoCEFNDuiChLT09B26LqAoZLT_zzSmwQ99rfh8hOvKJoQeB97dL3Z-f56q7Q3S_2fTgYz6-V8g1x-K3l_o_7D12ngkdZNZbTK1tiLg8qhc6JBDPgJicPxLXTVAfsMB4tTloWIpuYwYICHx3NjVsA6I012L-tPABPjFrhcM32cL6JDiKea9AIYQxPCzvsZUYwFf5xSbPn1ZyDFXUKEC6pXRx24nC-ADijwaFrYDxJtYaLQ4InWZGzRu7adXLIPy1tm9TQK0G_CteVXMByi2TPXfOqIeiICun4yDxKyJrcEs6GK-u_LLQl0F7InpFIeI80zYaZm1tjmSh-e-ODmagRU5zXoFJT-IVXeqx9e0IKPnfBp0ZGFkircDx2WmCZntocT5nvPuGsKj4JpYXLvGHJwuPaan1_JdH8PT7h1tn0KqApB-qburLzWyhskkXNsDuf5Cn_6uuVnQ-h4z3SD-7wnk4IEqQBf0ZETeNjtH8Wf396tuLlwP5ub5A4AGVpdligeZudZw3wxVqStBMRzjF3iF6TW-IW0xEYbt14AL891EUEgQK0VQU7fm-EjNOyxNuRpUjU1LufExZdq6BN6MVF2P0ykGY6HKVjTI7-kVmT7yXd-845hluTy64XBpgVO6VUH2exVs9PHO1ueZxF9ZiVdLxPgSQpKXQKfdNbwAf425NdFe-CCc07WrxBVDRJcGlQrlB2OV_wd3pQUPrWFfbMZAyYrcBrmtV3O_mSK_q1zW_gEg60LauMAZRbHjtYHhbomvpGBi4GJvUrkS7Yj9p0SJ7s0KqHl7AusWfd8kDqQ_RjuN86_3XLV2mVMBpZiaBdIRXPjGiLXRCkeLPag2BTz4wDJPPFGSyvGvg2l-f9YvHq3HYo_5NZUi4VsQIxWoe24OFcx2LAQ8XGa2AUdDJ5i5_R4bkyIfVYY2XF4MNnZlQA2L1AE1Nu42Z-H7SRkD2_jazmrkptdq40veeK2h3hJGa-paLWluBNyb53orpgsUevU-cwXOk2fBFp-y5o-gotJMo9B4ThGfn83fqX_zJSADx-HOnUtXHefRjc7rHRxoxjttCAZWJOnzq_IftWv_3-JjdXzlL-j94ZI8okv7WLkE2lKQjAksS5o19d6lqJKZsuLTmcWCzvBBV4OR7KMPsprO9nBJpGB9avuWkXBeIYOD1yxjzESCG2io8Dsr2nCNSbVvJCw85fZdzNLdPTrAsL75rLbum04ClNT5shMGgw9p3fO3S2u37zXD5sF00PJCDTkpmnUs56l95heHXnqG1b-Uv8cr45kyPv7c0978h2YnaQJer6WQOMK92ROEDoJBenx2iQuRq_tcmMCxGGSlW8e1lNaJ_XEbcHGI17iYyL0sKxo9cbSIzk77GxTeyT_ElXgzUiDHYi7Wo0ukvbPKElsN4gj9Oh9ODozjDMyfkcZtubFGfkxid019-0NhpUCnju4_QNN8AZA90zCBU7OTYCaaPuwjkNo5_mWVqzAMytt2mLvOwqobUbOBQl7BlTeW7RrePzwHgpNEwGVTc1iKB2fiHehPtBX6oFvYLg54lJGMjZZOHhJ9NuD9V0S-duxA" nonce="ccdb10bae513feb3662a0b9b9082b63b" charset="UTF-8"></script>
+</head>
+<body class="background-image">
+<div id="flipbook" class="flipbook-container"></div>
+<div id="prevBtn" class="arrow">&#10094;</div>
+<div id="nextBtn" class="arrow">&#10095;</div>
+<div id="volumeBtn" class="volume-icon">
+  <img id="volumeOnIcon" class="volume-icon-on" src="static\volume-on.png" alt="Volume On Icon">
+  <img id="volumeOffIcon" class="volume-icon-off" src="static\volume-off.png" alt="Volume Off Icon">
+</div>
+<audio id="pageFlipSound">
+    <source src="static/page.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+</audio>
+<audio id="backgroundMusic" loop>
+    <source src="static/bg.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+</audio>
+<a href="/download_pdf" download="flipbook.pdf"><button id="downloadButton"><i class="fa fa-download"></i>Download PDF</button></a>
+<a href="/video"><button id="viewVideoButton">View Video</button></a>
+<script>
+    var value = "{{value}}";
+</script>
+<script src="static/js/script.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
+
+</body>
+</html>

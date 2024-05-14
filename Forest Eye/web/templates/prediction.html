@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+
+{% block title %}Prediction{% endblock %}
+
+{% block content %}
+    <h1>Prediction for Coordinates</h1>
+    <div class="prediction-container">
+        <div id="prediction-form">
+            <form method="post" accept-charset="utf-8" name="Modelform">
+                <div class="col-md-10 form-group" style="text-align: center">
+                    <label><b>Enter the year:</b> </label><br>
+                    <input type="text" class="form-control" id="id" name="year" placeholder="Enter the year ">
+                </div>
+                <div class="col-md-10 form-group" style="text-align: center;margin-top:20px;">
+                    <button type="submit" class="btn btn-primary form-control" onclick="send_data()">Predict</button>
+                </div>
+            </form>
+        </div>
+
+        <div id="coordinates-info" class="coordinates-info">
+            <h2>Selected Coordinates:</h2>
+            <p><strong>Latitude:</strong> {{ latitude }}</p>
+            <p><strong>Longitude:</strong> {{ longitude }}</p>
+        </div>
+    </div>
+    <br>
+                <div class="row">
+                    <div class="col-12" style="text-align: center;">
+                        <h4><span id="prediction"></span></h4>
+                    </div>
+                </div>
+    
+    <script src="{{ url_for('static', filename='map.js') }}"></script>
+    <script>
+    function form_handler(event) {
+        event.preventDefault(); // Don't submit the form normally
+    }
+
+    function send_data()
+    {
+        document.querySelector('form').addEventListener("submit",form_handler);
+
+        var fd=new FormData(document.querySelector('form'));
+
+        var xhr= new XMLHttpRequest({mozSystem: true});
+        
+        xhr.open('POST','/result',true);
+        document.getElementById('prediction').innerHTML="Wait! Predicting Area.....";
+        xhr.onreadystatechange = function(){
+            if(xhr.readyState == XMLHttpRequest.DONE){
+                document.getElementById('prediction').innerHTML="Prediction: "+xhr.responseText+" km²";
+
+            }
+        };
+
+        xhr.onload= function(){};
+
+        xhr.send(fd);
+    }
+</script>
+{% endblock %}

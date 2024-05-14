@@ -1,0 +1,271 @@
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@600&family=Rubik+Doodle+Shadow&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@600&family=Rammetto+One&family=Rubik+Doodle+Shadow&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing:border-box;
+    scroll-padding-top: 2rem;
+    text-decoration: none;
+    list-style: none;
+    scroll-behavior: smooth;
+    font-family: "Inconsolata",sans-serif;
+    
+}
+
+:root{
+    --main-color: rgb(206, 88, 108);
+    --second-color: black;
+}
+
+section{
+    padding: 50px 10%;
+}
+*::selection {
+    color: white;
+    background: var(--main-color);
+}
+img{
+    width:100%
+}
+span{
+    color: white;
+
+}
+h1{
+    color: black;
+    font-size: 1000cm;
+    font-family: "Rubik Doodle Shadow",sans-serif;
+}
+
+header{
+    position: fixed;
+    width: 100%;
+    top: 0%;
+    right: 0%;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content:space-between;
+    background: white;
+    box-shadow: 0 4px 41px rgb(14 55 54 /14%);
+    padding: 15px 10%;
+    transition: 0.2s;
+}
+
+.logo {
+     display: flex;
+     align-items:center;
+}
+
+.logo img {
+   width:40px;
+}
+
+.navbar{
+   display: flex;
+}
+
+.navbar a{
+    font-size: 1rem;
+    padding: 11px 20px;
+    color: black;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.navbar a:hover {
+    color: var(--main-color)
+}
+
+#menu-icon{
+    font-size: 24px;
+    cursor: pointer;
+    z-index: 1001;
+    display:none;
+}
+
+.home{
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    background-color: black;
+    background-image:url('/static/images/yellowsky.jpg');
+    background-size: 1344px 896px;
+    background-repeat: no-repeat;
+    
+    background-color: rgb(142, 192, 142);
+    
+    gap: 1rem;
+    background-attachment: scroll;
+    
+}
+
+
+.home-txt {
+    flex: 1 1 40rem;
+    
+}
+
+.home-text h1 {
+    font-size: 3.5rem;
+    color: #c51350; /* Set the color to navy blue */
+
+}
+
+.home-img{
+    flex: 1 1 40rem;
+    
+}
+
+.home-img img{
+    animation: animate 3s linear infinite;
+}
+
+@keyframes animate {
+    0% {
+        transform: translate(-11px,0);
+    }
+    50% {
+        transform: translate(-0px, -11px);
+    }
+    100% {
+        transform: translate(-11px,0);
+    }
+}
+
+.home-text span {
+    font-size: 1rem;
+    text-transform: uppercase;
+    font-weight: 60;
+    color: white;
+}
+
+/*.home-text h1{
+    font-size: 3.2rem;
+    color: white;
+    font-weight: bolder;
+}*/
+
+textarea{
+    resize: none;
+}
+
+.btn{
+    padding: 2px 16px;
+    border: 2px solid white;
+    border-radius: 40px;
+    color: white;
+    font-weight: 500;
+}
+
+.btn:hover{
+    color: white;
+    background: black;
+}
+
+.btn1{
+    padding: 2px 16px;
+    border: 2px solid black;
+    border-radius: 40px;
+    color: black;
+    font-weight: 500;
+}
+
+.btn1:hover{
+    color: black;
+    background: white;
+}
+
+.heading{
+    text-align: center;
+}
+
+.heading span{
+    font-size: 1 rem;
+    font-weight: 600;
+    color: black;
+}
+
+.heading h1{
+    font-size: 2rem;
+    color: black;
+    font-family: "Rubik Doodle Shadow",sans-serif;
+}
+
+#textToImageForm {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    /*box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);*/
+}
+
+#textInput {
+    /*width: 200px;*/
+    padding: 10px;
+    font-size: 16px;
+    margin-bottom: 10px;
+    border: 2px solid black;
+    border-radius: 5px;
+}
+
+#title {
+    width: 200px;
+    padding: 10px;
+    font-size: 16px;
+    margin-bottom: 10px;
+    border: 2px solid black;
+    border-radius: 5px;
+}
+
+#generateButton {
+    display: inline-block;
+    padding: 3px 16px;
+    font-size: 16px;
+    cursor: pointer;
+    text-align: center;
+    outline: none;
+    color: #fff;
+    background-color: black;
+    border: none;
+    border-radius: 15px;
+}
+
+#generateButton:hover {
+    background-color: black}
+
+#generateButton:active {
+    background-color: #000000;
+    box-shadow: 0 5px #0f0f0f;
+    transform: translateY(4px);
+  }
+
+
+
+#outputImage {
+    margin-top: 20px;
+    max-width: 100%;
+}
+.contact{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: black;
+}
+
+.social a{
+    font-size: 27px;
+    margin: 0.5 rem;
+}
+
+.social a .bx{
+    padding:5px;
+    color: black;
+    background: white;
+    border-radius: 50%;
+}

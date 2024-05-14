@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../static/index.css">
+    <!-- <script src="/static/script.js"></script> -->
+</head>
+
+<body>
+    <div class="overlay"></div>
+    <div class="container">
+
+        <div class="navbar">
+            <div class="logoContent">
+                <img src="../static/Images/logo.png" alt="Logo image" class="logo">
+                <!-- <div class="logoText">Logo text</div> -->
+            </div>
+            <div class="navLinks">
+                <a href="/" class="links active">Home</a>
+                <a href="/uploadimages" class="links">Learn</a>
+                <a href="/viewmudra" class="links">View Mudras</a> 
+                <a href="/feedback" class="links">Feedback</a>
+            </div>
+        </div>
+
+            <div class="interface">
+                <div class="title">
+                    DANCE MUDRA LEARNING TOOL
+                </div>
+                <div class="description">
+                    “Everything in the Universe has a rhythm, everything dances.”
+                                                     
+                </div>
+
+                <!-- <div id="mudraContentContainer" style="display: none;">
+                    <img id="mudraImage1" src="" alt="Mudra Image 1">
+                    <img id="mudraImage2" src="" alt="Mudra Image 2">
+                    <p id="mudraText"></p>
+                </div> -->
+
+                <!-- <form action="/predict" method="POST" enctype="multipart/form-data" id="uploadForm">
+                <input type="file" accept="image/jpeg, image/png" id ="real-file" hidden="hidden"/>
+                <button type="button" id="custom-button">Upload Image</button>
+                <button type="button" id="predictButton">Predict</button>
+                <button type="button" id="cameraButton">Start Camera</button> <!-- Button to start camera -->
+                <!-- <span id="custom-text">No file choosen</span>
+
+            </form> --> 
+             <!-- <div id="predictionResult"></div>
+                <div class="buttonContainer">
+                    
+                    <button class="fileUpload">Upload Images</button>
+               
+          </div>  -->
+                    
+                       
+        </div>
+    <!-- </div>
+    <script type="text/javascript">
+         const realFileBtn=document.getElementById("real-file");
+        const customBtn=document.getElementById("custom-button");
+        const customTxt=document.getElementById("custom-text");
+        const predictButton = document.getElementById("predictButton");
+        const predictionResult = document.getElementById("predictionResult");
+        const cameraButton = document.getElementById("cameraButton"); // Get the camera button
+
+        let stream; // Variable to store the camera stream
+
+        customBtn.addEventListener("click",function(){
+            realFileBtn.click();});
+
+        realFileBtn.addEventListener("change",function(){
+            if(realFileBtn.value){
+                customTxt.innerHTML=realFileBtn.value.match(/[\/\\]([\w\d\s\.\-\(\)]+)$/)[1];
+            }else{
+                customTxt.innerHTML="No file choosen";
+            }
+        });
+
+        predictButton.addEventListener("click", function () {
+            const formData = new FormData(document.getElementById("uploadForm"));
+
+            fetch('/predict', {
+                method: 'POST',
+                body: formData
+            })
+                .then(response => response.json())
+                .then(data => {
+                    predictionResult.innerHTML = "Predicted mudra: " + data.prediction;
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                });
+        });
+
+        cameraButton.addEventListener("click", function() {
+            if (!stream) {
+                startCamera(); // If the camera stream is not started, start it
+                cameraButton.textContent = "Stop Camera"; // Change button text to "Stop Camera"
+            } else {
+                stopCamera(); // If the camera stream is started, stop it
+                cameraButton.textContent = "Start Camera"; // Change button text to "Start Camera"
+            }
+        });
+
+        function startCamera() {
+            navigator.mediaDevices.getUserMedia({ video: true })
+                .then(function (mediaStream) {
+                    const video = document.createElement('video');
+                    video.srcObject = mediaStream;
+                    video.onloadedmetadata = function (e) {
+                        video.play();
+                    };
+                    document.body.appendChild(video);
+                    stream = mediaStream;
+                })
+                .catch(function (err) {
+                    console.log('Error accessing camera:', err);
+                });
+        }
+
+        function stopCamera() {
+            stream.getTracks().forEach(function (track) {
+                track.stop();
+            });
+            stream = null;
+        }
+
+    </script>
+ </div>
+</div>
+
+<script type="text/javascript">
+ document.addEventListener('DOMContentLoaded', () => {
+    
+     let stream;
+
+   
+ });
+</script> -->
+
+</body>
+
+</html>

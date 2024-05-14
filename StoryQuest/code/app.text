@@ -1,0 +1,84 @@
+import os
+import re
+import numpy as np
+from flask import Flask, render_template, request
+from diffusers import StableDiffusionPipeline
+from diffusers import models
+from PIL import Image, ImageDraw, ImageFont
+
+# Define a font style and size for the text
+
+import torch
+import hashlib
+#from flask_ngrok import run_with_ngrok
+
+app = Flask(__name__)
+model_path = 'saved_model/my_model'
+
+#my_model = torch.load(model_path)
+model_path = 'prompthero/midjourney-v4-diffusion'
+my_model = StableDiffusionPipeline.from_pretrained(model_path , torch_dtype=torch.float32)
+my_model = my_model.to('cuda')
+device= "GPU"
+
+@app.route('/', methods=['GET', 'POST'])
+def home():
+    image_path = None
+    if request.method == 'POST':
+        user_prompt = request.form['textInput']
+        font_path = "arial.ttf"
+        #font = ImageFont.truetype("arial.ttf", 20)
+        with open("text.txt","w") as file:
+            file.write(user_prompt.strip())
+
+        with open("text.txt","r") as file:
+            text = file.read()
+
+        paragraphs = re.split(r"[.]",text)
+
+        
+
+        i=1
+
+        for index, para in enumerate(paragraphs[:-1]):
+          result = my_model(prompt=para.strip()+"cartoon style", width=512,height=512)
+          image_array = np.array(result.images[0])
+          images = Image.fromarray(image_array)
+          rectangle_width = 512
+          rectangle_height = 50
+          rectangle_x1 = (512 - rectangle_width) // 2
+          rectangle_y1 = 512 - rectangle_height - 20  # 20 pixels from the bottom
+          rectangle_x2 = rectangle_x1 + rectangle_width
+          rectangle_y2 = rectangle_y1 + rectangle_height
+          draw = ImageDraw.Draw(images)
+
+    # Create a drawing context
+          #draw = ImageDraw.Draw(image)
+          initial_font_size = 20
+          font = ImageFont.truetype(font_path, initial_font_size)
+
+# Get text size
+# Draw text on the image
+
+
+    # Add text onto the image
+          draw.rectangle([(rectangle_x1, rectangle_y1), (rectangle_x2, rectangle_y2)], fill="white")
+          draw.text((10, 450), para, font=font, fill="black")
+    
+    # Add text onto the image
+          #draw.text((10, 10), para, fill="white", font=font)  # Adjust the position as needed
+    
+    # Save the image with the unique filename
+          
+    
+    # Generate a unique filename based on the content of the paragraph
+          filename = f'static/images/{index+1}.png'  # Using incremental counter as filename
+          images.save(filename)
+
+        return render_template('book.html')
+
+    return render_template('index.html')
+
+if __name__ == '__main__':
+    app.run()
+
