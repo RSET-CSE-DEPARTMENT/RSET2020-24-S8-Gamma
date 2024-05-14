@@ -1,0 +1,24 @@
+body, html {
+    margin: 0;
+    padding: 0;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.chart-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Adjust as needed */
+}
+
+
+canvas#myChart {
+    max-width: 1400px;
+    max-height: 600px;
+    width: 70%;
+    height: 70%;
+    border: 1px solid #ddd; /* Add border for visualization */
+}
