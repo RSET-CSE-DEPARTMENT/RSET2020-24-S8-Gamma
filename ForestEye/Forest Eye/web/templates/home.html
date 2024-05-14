@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+
+{% block title %}Dashboard{% endblock %}
+
+{% block content %}
+    <div id="dashboard">
+        <video autoplay muted loop id="globe-video">
+            <source src="{{ url_for('static', filename='images/globe-video.mp4') }}" type="video/mp4">
+            Your browser does not support HTML5 video.
+        </video>
+        <div class="dashboard-overlay">
+            <div class="dashboard-options">
+                <div class="dashboard-option">
+                   <a style="text-decoration:none" href="{{url_for('trend')}}">
+                    <h3>Trend Analysis</h3>
+                    <p>Explore historical trends</p>
+                   </a>
+                </div>
+                <div class="dashboard-option" onclick="location.href='deforestation-prediction'">
+                   
+                    <h3>Deforestation Prediction</h3>
+                    <p>Predict future deforestation</p>
+                </div>
+                <button class="why-para-button" onclick="location.href='/why-para'">Why Para?</button>
+            </div>
+        </div>
+    </div>
+{% endblock %}
