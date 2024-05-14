@@ -1,0 +1,170 @@
+/* @font-face rule for TTF font */
+@font-face {
+    font-family: 'melgike';
+    src: url('melgike.ttf') format('truetype');
+}
+
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;	
+}
+.argus {
+    font-family: melgike;
+    font-size: 90px;
+    font-weight: 500;
+    margin: 0;
+    margin-left: 20px;
+
+    /* Center the text vertically */
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+body {
+	background: linear-gradient(90deg, #C7C5F4, #776BCC);		
+    font-family: system-ui;
+}
+.background {		
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+}
+
+
+.welcome {
+  margin: 0;
+  margin-left: 20px;
+
+  /* Center the text vertically */
+  position: absolute;
+  top: 50%;
+  transform: translateY(140%);
+}
+.button-container {
+    display: flex;
+    align-items: center; /* Center the buttons horizontally */
+    margin-top: 100px;
+    margin-left: 600px; /* Add some space between the welcome text and the buttons */
+}
+
+.button-container2 {
+  display: flex;
+  
+  margin-top: 100px;
+  margin-right: 150px;
+}
+button {
+  /* Variables */
+  --button_radius: 0.75em;
+  --button_color: #e8e8e8;
+  --button_outline_color: #000000;
+  font-size: 17px;
+  font-weight: bold;
+  border: none;
+  border-radius: var(--button_radius);
+  background: var(--button_outline_color);
+  margin-left: 20px;
+}
+
+.button_top {
+  display: block;
+  box-sizing: border-box;
+  border: 2px solid var(--button_outline_color);
+  border-radius: var(--button_radius);
+  padding: 0.75em 1.5em;
+  background: var(--button_color);
+  color: var(--button_outline_color);
+  transform: translateY(-0.2em);
+  transition: transform 0.1s ease;
+}
+
+button:hover .button_top {
+  /* Pull the button upwards when hovered */
+  transform: translateY(-0.33em);
+}
+
+button:active .button_top {
+  /* Push the button downwards when pressed */
+  transform: translateY(0);
+}  
+  .logout {
+    position: fixed;
+    bottom: 10px; /* Adjust the distance from the bottom */
+    right: 10px; /* Adjust the distance from the right */
+}
+.logout {
+    color: #090909;
+    padding: 0.7em 1.7em;
+    font-size: 18px;
+    border-radius: 0.5em;
+    background: #e8e8e8;
+    cursor: pointer;
+    border: 1px solid #e8e8e8;
+    transition: all 0.3s;
+}
+  
+  .logout:active {
+    color: #666;
+    box-shadow: inset 4px 4px 12px #c5c5c5, inset -4px -4px 12px #ffffff;
+  }
+  
+  .cta {
+    position: relative;
+    margin: auto;
+    padding: 12px 18px;
+    transition: all 0.2s ease;
+    border: none;
+    background: none;
+    cursor: pointer;
+  }
+  
+  .cta:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+    border-radius: 50px;
+    background: #b1dae7;
+    width: 45px;
+    height: 45px;
+    transition: all 0.3s ease;
+  }
+  
+  .cta span {
+    position: relative;
+    font-family: "Ubuntu", sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    color: #234567;
+  }
+  
+  .cta svg {
+    position: relative;
+    top: 0;
+    margin-left: 10px;
+    fill: none;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke: #234567;
+    stroke-width: 2;
+    transform: translateX(-5px);
+    transition: all 0.3s ease;
+  }
+  
+  .cta:hover:before {
+    width: 100%;
+    background: #b1dae7;
+  }
+  
+  .cta:hover svg {
+    transform: translateX(0);
+  }
+  
+  .cta:active {
+    transform: scale(0.95);
+  }
+  

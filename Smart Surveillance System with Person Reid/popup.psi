@@ -1,0 +1,8 @@
+Dim result
+result = MsgBox("Click OK to redirect to the desired page.", vbOKCancel + vbInformation, "Popup Alert")
+
+If result = vbOK Then
+    ' Redirect to the desired page
+    Set objShell = CreateObject("WScript.Shell")
+    objShell.Run "http://127.0.0.1/login.html"
+End If
